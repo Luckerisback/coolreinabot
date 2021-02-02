@@ -12,6 +12,15 @@ async def hello(ctx):
     author = ctx.message.author
 
     await ctx.send(f'Hello, {author.mention}!')
+    
+    
+@bot.command(pass_context=True)
+async def image(ctx):
+    response = requests.get('https://some-random-api.ml/img/fox')
+    json_data = json.loads(response.text)
 
+    embed = discord.Embed(colour=0xff9900, title='Random pictures')
+    embed.set_image(url=json_data['link'])
+    await ctx.send(embed=embed)
 
 bot.run(setting['token'])
