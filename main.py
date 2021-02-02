@@ -8,10 +8,10 @@ bot = commands.Bot(command_prefix=setting['prefix'])
 
 
 @bot.command(pass_context=True)
-async def hello(ctx):
+async def елимясомужики(ctx):
     author = ctx.message.author
 
-    await ctx.send(f'Hello, {author.mention}!')
+    await ctx.send(f'Пивом запивали!, {author.mention}!')
     
     
 @bot.command(pass_context=True)
