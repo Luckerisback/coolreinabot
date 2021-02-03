@@ -6,6 +6,12 @@ from config import setting
 
 bot = commands.Bot(command_prefix=setting['prefix'])
 
+@bot.event
+async def on_message(msg):
+    if msg.content == "qwe":
+        await  Bot.delete_message(msg)
+
+
 
 @bot.command(pass_context=True)
 async def елимясомужики(ctx):
