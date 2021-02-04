@@ -17,9 +17,8 @@ async def on_message(message):
 
 
 @bot.command(pass_context=True)
-async def елимясомужики(ctx):
+async def alive(ctx):
     author = ctx.message.author
-
     await ctx.send(f'Пивом запивали!, {author.mention}!')
 
 
