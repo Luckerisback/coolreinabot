@@ -18,6 +18,8 @@ async def on_message(message):
     await bot.process_commands(message)
     if message.content.startswith('Reina is cute?'):
         await message.channel.send('Cute Reina!')
+    if message.content.startswith('Say something to original Reina'):
+        await  message.channel.send("I'm prettier then you! ")
 
 
 @bot.command(pass_context=True)
