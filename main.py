@@ -8,6 +8,13 @@ from config import setting
 bot = commands.Bot(command_prefix=setting['prefix'])
 
 
+@bot.event
+async def on_message(message):
+    if message.content.startswith('Фото на рабочий стол с водопадами'):
+        print('[command]: photo с водопадами')
+        await message.channel.send('ссылка')
+
+
 @bot.command(pass_context=True)
 async def елимясомужики(ctx):
     author = ctx.message.author
