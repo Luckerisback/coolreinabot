@@ -19,7 +19,7 @@ async def on_message(message):
     if message.content.startswith('Reina is cute?'):
         await message.channel.send('Cute Reina!')
     if message.content.startswith('Say something to original Reina'):
-        await  message.channel.send("I'm prettier then you! ")
+        await message.channel.send("I'm prettier then you! ")
 
 
 @bot.command(pass_context=True)
@@ -29,11 +29,8 @@ async def alive(ctx):
 
 
 @bot.command(pass_context=True)
-async def create_role(ctx):
-    name_role = ' '.join(ctx.message.content.split(' ')[1:])
-    server = ctx.message.server
-    new_role = await bot.create.role(server)
-    await bot.edite_role(server, new_role, name=name_role)
+async def create_role(ctx, user: discord.Member, role: discord.role):
+    await bot.add_role(user, role)
 
 
 bot.run(setting['token'])
