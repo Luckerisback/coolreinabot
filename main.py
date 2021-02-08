@@ -30,7 +30,7 @@ async def alive(ctx):
 
 @bot.command(pass_context=True)
 async def add_role(ctx, user: discord.Member, role: discord.Role):
-    await bot.add_role(user, role)
+    await bot.add_roles(user, role)
 
 
 bot.run(setting['token'])
