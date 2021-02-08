@@ -28,4 +28,12 @@ async def alive(ctx):
     await ctx.send(f'Пивом запивали!, {author.mention}!')
 
 
+@bot.command(pass_context=True)
+async def create_role(ctx):
+    name_role = ' '.join(ctx.message.content.split(' ')[1:])
+    server = ctx.message.server
+    new_role = await bot.create.role(server)
+    await bot.edite_role(server, new_role, name=name_role)
+
+
 bot.run(setting['token'])
