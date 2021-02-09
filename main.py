@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import setting
+from discord.utils import get
 
 
 bot = commands.Bot(command_prefix='!')
@@ -29,8 +30,8 @@ async def alive(ctx):
 
 @bot.command(pass_context=True)
 async def add_role(ctx, user: discord.Member, role: discord.Role):
-    await discord.Member.add_roles(user, role)
-
+    user.add_roles(role)
+   
 
 @bot.command(pass_context=True)
 async def create_role(ctx):
