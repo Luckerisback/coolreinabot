@@ -1,16 +1,15 @@
 import discord
-import os
 from discord.ext import commands
 from discord.ext.commands import Bot
 from config import setting
 
 
-bot = commands.Bot(command_prefix=setting['prefix'])
+bot = commands.Bot(command_prefix='!')
 
 
 @bot.command(pass_context=True)
 async def ban(ctx, user: discord.Member):
-    await bot.Ban(user)
+    await bot.ban(user)
 
 
 @bot.event
@@ -30,7 +29,7 @@ async def alive(ctx):
 
 @bot.command(pass_context=True)
 async def add_role(ctx, user: discord.Member, role: discord.Role):
-    await bot.add_roles(user, role)
+    await user.add_roles(role)
 
 
 @bot.command(pass_context=True)
