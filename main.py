@@ -33,4 +33,12 @@ async def add_role(ctx, user: discord.Member, role: discord.Role):
     await bot.add_roles(user, role)
 
 
+@bot.command(pass_context=True)
+async def create_role(ctx):
+    name_role = ' '.join(ctx.message.content.split(' ')[1:])
+    server = ctx.message.server
+    new_role = await bot.create_role(server)
+    await bot.edit_role(server, new_role, name= name_role)
+
+
 bot.run(setting['token'])
