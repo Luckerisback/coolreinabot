@@ -10,7 +10,7 @@ bot = commands.Bot(command_prefix='!')
 
 @bot.command(pass_context=True)
 async def ban(ctx, user: discord.Member):
-    await bot.ban(user)
+    await user.ban
 
 
 @bot.event
@@ -33,13 +33,10 @@ async def add_role(ctx, user: discord.Member, role: discord.Role):
     await user.add_roles(role) 
   
    
-
 @bot.command(pass_context=True)
 async def create_role(ctx):
     name_role = ' '.join(ctx.message.content.split(' ')[1:])
-    server = ctx.message.server
-    new_role = await bot.create_role(server)
-    await bot.edit_role(server, new_role, name= name_role)
-
+    guild = ctx.guild
+    await guild.create_role(name=name_role)
 
 bot.run(setting['token'])
