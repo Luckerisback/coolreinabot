@@ -3,7 +3,6 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from config import setting
 from discord.utils import get
-import generator
 from generator import train
 from generator import generate_sentence
 
