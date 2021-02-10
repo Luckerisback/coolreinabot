@@ -3,8 +3,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from config import setting
 from discord.utils import get
-from generator import train
-from generator import generate_sentence
+import generator
 
 
 bot = commands.Bot(command_prefix='!')
