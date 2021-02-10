@@ -71,3 +71,9 @@ def unirand(seq):
         freq_ += freq
         if rnd < freq_:
             return token
+
+
+if __name__ == '__main__':
+    model = train(r'C:\Users\elite\Documents\GitHub\coolreinabot\zadornov.txt')
+    for i in range(10):
+        print(generate_sentence(model)),
