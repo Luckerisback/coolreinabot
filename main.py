@@ -23,8 +23,6 @@ async def on_zadornov(message):
         await message.channel.send(generate_sentence(model))
      
 
-
-
 @bot.event
 async def on_message(message):
     await bot.process_commands(message)
