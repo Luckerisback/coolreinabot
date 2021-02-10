@@ -15,9 +15,8 @@ async def ban(ctx, user: discord.Member):
     await user.ban
 
 
-@bot.event
+@bot.command
 async def on_zadornov(message):
-    await bot.process_commands(message)
     model = train('zadornov.txt')
     await message.channel.send(generate_sentence(model))
      
