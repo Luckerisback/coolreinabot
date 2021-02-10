@@ -19,8 +19,7 @@ async def ban(ctx, user: discord.Member):
 async def on_zadornov(message):
     await bot.process_commands(message)
     model = train('zadornov.txt')
-    for i in range(10):
-        await message.channel.send(generate_sentence(model))
+    await message.channel.send(generate_sentence(model))
      
 
 @bot.event
