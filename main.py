@@ -3,6 +3,9 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 from config import setting
 from discord.utils import get
+import generator
+from generator import train
+from generator import generate_sentence
 
 
 bot = commands.Bot(command_prefix='!')
@@ -11,6 +14,16 @@ bot = commands.Bot(command_prefix='!')
 @bot.command(pass_context=True)
 async def ban(ctx, user: discord.Member):
     await user.ban
+
+
+@bot.event
+async def on_zadornov(message):
+    await bot.process_commands(message)
+    model = train('zadornov.txt')
+    for i in range(10):
+        await message.channel.send(generate_sentence(model))
+     
+
 
 
 @bot.event
@@ -38,5 +51,6 @@ async def create_role(ctx):
     name_role = ' '.join(ctx.message.content.split(' ')[1:])
     guild = ctx.guild
     await guild.create_role(name=name_role)
+
 
 bot.run(setting['token'])
