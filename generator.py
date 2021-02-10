@@ -6,9 +6,9 @@ from collections import defaultdict
 r_alphabet = re.compile(u'[а-яА-Я0-9-]+|[.,:;?!]+')
 
 def gen_line(corpus):
-    data = open(corpus)
+    data = open(corpus, encoding="utf8")
     for line in data:
-        yield line.decode('utf-8').lower()
+        yield line.lower()
 
 
 def gen_tokens(lines):
@@ -64,7 +64,7 @@ def generate_sentence(model):
 
 def unirand(seq):
     sum_, freq_ = 0, 0
-    for freq in seq:
+    for item, freq in seq:
         sum_ += freq
     rnd = uniform(0, sum_)
     for token, freq in seq:
