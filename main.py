@@ -32,7 +32,8 @@ async def on_message(message):
     if message.content.startswith('Reina is cute?'):
         await message.channel.send('Cute Reina!')
     if message.content.startswith('Say something to original Reina'):
-        await message.channel.send("I'm prettier then you! ")
+        model = train(r'zadornov.txt')
+        await message.channel.send(generate_sentence(model))
 
 
 @bot.command(pass_context=True)
