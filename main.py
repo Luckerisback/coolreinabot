@@ -4,6 +4,12 @@ from discord.ext.commands import Bot
 from config import setting
 from discord.utils import get
 import generator
+from generator import generate_sentence
+from generator import train
+from generator import gen_line
+from generator import gen_tokens
+from generator import gen_trigrams
+from generator import unirand
 
 
 bot = commands.Bot(command_prefix='!')
